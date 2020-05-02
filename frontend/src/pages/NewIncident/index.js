@@ -19,6 +19,7 @@ export default function NewIncident() {
 
 
     async function handleCreatNewIncident(e) {
+       
         e.preventDefault();
         
         const data ={
@@ -26,7 +27,7 @@ export default function NewIncident() {
             description,
             value,
        };
-
+           
        try{
            await api.post('incidents', data,{
                headers:{
@@ -39,6 +40,7 @@ export default function NewIncident() {
        }
     }
     
+
     
     return (
         <div className='new-incident-container'>
@@ -58,18 +60,21 @@ export default function NewIncident() {
                 <form >
 
                     <input 
+                    required
                     placeholder="Titulo do Caso"
                     value={titlle}
-                    onChange={e =>settitlle(e.target.value)}
+                    onChange= {e =>settitlle(e.target.value)}
                     />
 
                     <textarea 
+                    required
                     placeholder="Descrição"
                     value={description}
                     onChange={e =>setdescription(e.target.value)}
                     />
 
                     <input 
+                    required
                     placeholder="Valor em reais"
                     value={value}
                     onChange={e =>setvalue(e.target.value)}
